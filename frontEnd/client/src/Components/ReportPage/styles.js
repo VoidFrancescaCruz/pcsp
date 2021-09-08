@@ -65,4 +65,22 @@ export default makeStyles((theme) => ({
     paddingRight: '40px',
     borderRadius: '5px',
   },
+
+  italic: {
+    fontStyle: 'italic',
+    fontWeight: 'normal',
+    color: '#6D6F72',
+    // paddingRight: '5px',
+    
+    
+  },
+
+  translationAlignment: {
+    marginTop: '20px',
+    paddingRight: '50px'
+  }
+
+
+
+
 }));

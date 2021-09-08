@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import Button from 'react-bootstrap'
 import { Container, Grid } from '@material-ui/core'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import cyberSecuritytopics from './cyberSecuritytopics';
-import newsAndupdates from './newsAndupdates';
+import CyberSecurityTopicsPage from './CyberSecurityTopicsPage';
 
 import  './Resources.css'
+import NewsAndUpdatesPage from './NewsAndUpdatesPage';
 
 export default class Resources extends Component {
 
@@ -30,10 +30,10 @@ export default class Resources extends Component {
                 <div>
                     <Switch>
                         <Route path="/cybersecurity">
-                            <cyberSecuritytopics />
+                            <CyberSecurityTopicsPage />
                         </Route>
                         <Route path="/newsandupdates">
-                            <newsAndupdates />
+                            <NewsAndUpdatesPage />
                         </Route>
                     </Switch>
                 </div>

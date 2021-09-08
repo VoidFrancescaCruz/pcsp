@@ -27,7 +27,20 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    textAlign: 'justify',
+    textAlign: 'center',
+  },
+
+
+  paragraph: {
+    width: '100%',
+    color: 'white !important',
+    paddingTop: 'auto',
+    paddingBottom: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    fontSize: '20px'
   },
 
   vectorImage: {

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export default styled.div`
   justify-content: center;
   align-items: center;
+  
   height: 325px;
   width: 100%;
   width: 400px;

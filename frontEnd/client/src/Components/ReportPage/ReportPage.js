@@ -151,10 +151,15 @@ const Form = () => {
 		others4Disabled: true,
 		others5Disabled: true,
 		others6Disabled: true,
+
+
 	})
 
 	//Needed for styles.js
 	const classes = useStyles();
+
+
+
 	//Backend Stuff
 	const dispatch = useDispatch();
 
@@ -177,6 +182,7 @@ const Form = () => {
 		}
 	}
 
+
 	// function handleFileInput (event){
 	// 	setPostData({...postData, image: event.target.value})
 	// 	console.log(event)
@@ -194,108 +200,119 @@ const Form = () => {
 			</div><br />
 
 			{/* Reporting Person Details Input Fields */}
-			<Container>
+			<Container className={classes.italic}>
 
 				<Grid container spacing={2}>
 
 					<Grid item xs={12}>
-						<div>
-							<TextField
-								size="small"
-								name="name"
-								variant="outlined"
-								label="Name"
-								placeholder="Pangalan"
-								fullWidth
-								required
-								value={postData.name}
-								onChange={(e) => setPostData({ ...postData, name: e.target.value })}
-							/>
-						</div>
+
+						<TextField
+							size="small"
+							name="name"
+							variant="outlined"
+							label="Name"
+							placeholder="Pangalan"
+							fullWidth
+							required
+							value={postData.name}
+							onChange={(e) => setPostData({ ...postData, name: e.target.value })}
+						/>
+
 					</Grid>
 
 					<Grid item xs={12}>
-						<div>
-							<TextField
-								size="small"
-								name="organization"
-								variant="outlined"
-								label="Organization"
-								value={postData.organization}
-								fullWidth
-								onChange={(e) => setPostData({ ...postData, organization: e.target.value })}
-							/>
-						</div>
+
+						<TextField
+							size="small"
+							name="organization"
+							variant="outlined"
+							label="Organization"
+							placeholder="Organisasyon"
+							value={postData.organization}
+							fullWidth
+							required
+							onChange={(e) => setPostData({ ...postData, organization: e.target.value })}
+						/>
+
 					</Grid>
 
 					<Grid item xs={12}>
-						<div>
-							<TextField
-								size="small"
-								name="address"
-								variant="outlined"
-								label="Address"
-								value={postData.address}
-								fullWidth
-								onChange={(e) => setPostData({ ...postData, address: e.target.value })}
-							/>
-						</div>
+
+						<TextField
+
+							size="small"
+							name="address"
+							variant="outlined"
+							label="Address"
+							placeholder="Tirahan"
+							value={postData.address}
+							fullWidth
+							required
+							onChange={(e) => setPostData({ ...postData, address: e.target.value })}
+						/>
+
 					</Grid>
 
 					<Grid item xs={6}>
-						<div>
-							<TextField
-								size="small"
-								name="primaryContact"
-								variant="outlined"
-								label="Primary Contact No."
-								value={postData.primaryContact}
-								fullWidth
-								onChange={(e) => setPostData({ ...postData, primaryContact: e.target.value })}
-							/>
-						</div>
+
+						<TextField
+							size="small"
+							name="primaryContact"
+							variant="outlined"
+							label="Primary Contact No."
+							placeholder="Pangunahing Numerong Matatawagan"
+							value={postData.primaryContact}
+							fullWidth
+							required
+							onChange={(e) => setPostData({ ...postData, primaryContact: e.target.value })}
+						/>
+
 					</Grid>
 
 					<Grid item xs={6}>
-						<div>
-							<TextField
-								size="small"
-								name="email"
-								variant="outlined"
-								label="Email Address"
-								value={postData.email}
-								fullWidth
-								onChange={(e) => setPostData({ ...postData, email: e.target.value })}
-							/>
-						</div>
+
+						<TextField
+							size="small"
+							name="email"
+							variant="outlined"
+							label="Email Address"
+							placeholder="Email Address"
+							value={postData.email}
+							fullWidth
+							required
+							onChange={(e) => setPostData({ ...postData, email: e.target.value })}
+						/>
+
 					</Grid>
 
 					<Grid item xs={6}>
-						<div>
-							<TextField
-								size="small"
-								name="secondaryContact"
-								variant="outlined"
-								label="Secondary Contact No."
-								value={postData.secondaryContact}
-								fullWidth
-								onChange={(e) => setPostData({ ...postData, secondaryContact: e.target.value })}
-							/>
-						</div>
+
+						<TextField
+							size="small"
+							name="secondaryContact"
+							variant="outlined"
+							label="Secondary Contact No."
+							placeholder="Pangalawang Numerong Matatawagan"
+							value={postData.secondaryContact}
+							fullWidth
+							onChange={(e) => setPostData({ ...postData, secondaryContact: e.target.value })}
+						/>
+
 					</Grid>
 
 					<Grid item xs={6}>
-						<div>
-							<TextField
-								size="small"
-								name="alternativeEmail"
-								variant="outlined"
-								label="Alternative Email Address"
-								value={postData.alternativeEmail}
-								fullWidth
-								onChange={(e) => setPostData({ ...postData, alternativeEmail: e.target.value })}
-							/>
-						</div>
+
+						<TextField
+							size="small"
+							name="alternativeEmail"
+							variant="outlined"
+							label="Alternative Email Address"
+							placeholder="Alternatibong Email Address"
+							value={postData.alternativeEmail}
+							fullWidth
+							onChange={(e) => setPostData({ ...postData, alternativeEmail: e.target.value })}
+						/>
+
 					</Grid>
 
 				</Grid>
@@ -313,10 +330,10 @@ const Form = () => {
 				{/* Title Card */}
 
 				<h5 className={classes.reportForm}>Description of the Event</h5><br />
-				<h6 className={classes.reportForm}>What Occured?</h6>
+				<h6 className={classes.reportForm}>What Occured? <span className={classes.italic}>(Anong nangyari?)</span></h6>
+
 
 				<Grid container className={classes.reportForm}>
-
 					<Grid item xs={6} >
 						<LightTooltip title="Definition: Temporary loss of network connectivity or services within the data or computer system."
 							placement="right" arrow interactive TransitionComponent={Zoom}>
@@ -329,7 +346,9 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Kawalan ng Serbisyo)</span>
 					</Grid>
+
 
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: An inability of a program and/or an equipment to process that results to failures "
@@ -343,6 +362,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Pinsala sa Sistema o Software)</span>
 					</Grid>
 
 					<Grid item xs={6}>
@@ -356,7 +376,8 @@ const Form = () => {
 								label="Access and Compliance Violations"
 								labelPlacement="end"
 							/>
-						</LightTooltip>
+							</LightTooltip>
+							<span className={classes.italic}>(Paglabag sa Katuparan at Access)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Overloading of data resulting to crash, inaccessibility, and failure"
@@ -370,6 +391,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Labis na Karga ng Sistema)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Unauthorized access to sensitive documents and computer files causing hacks and theft of sensitive information"
@@ -383,6 +405,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Paglabag sa Pisikal na Seguridad)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Unauthorized and unwanted changes resulting to abnormal behaviors and failures"
@@ -396,6 +419,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Di Inaasahang Pagbabaggo sa Sistema)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Threatening the security or functionality of the application, host, or network caused by intrusion or cyber attack."
@@ -409,6 +433,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Tangkang Intrusyon)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<div>
@@ -422,7 +447,9 @@ const Form = () => {
 								label="Others"
 								labelPlacement="end"
 
+								
 							/>
+							<span className={classes.italic}>(Iba pang Dahilan)</span>
 							<TextField
 								id="others1Text"
 								name="others1Text"
@@ -433,10 +460,12 @@ const Form = () => {
 
 
 						</div>
+						
 					</Grid>
 				</Grid>
 
-				<br /><h6 className={classes.reportForm}>How it Occured?</h6>
+				<br /><h6 className={classes.reportForm}>How it Occured? <span className={classes.italic}>(Paano nangyari?)</span></h6>
+
 
 
 				{/* How Occured */}
@@ -453,6 +482,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Pandaraya o Paghack)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Any tangible injury to a property"
@@ -466,6 +496,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Pisikal na Pinsala)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Error made by the human user of a complex system."
@@ -479,6 +510,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Pagkakamali ng Gumagamit)</span>
 					</Grid>
 
 					<Grid item xs={6}>
@@ -493,6 +525,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Pagpalpak ng Hardware)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: When the user perceives that the applications used has failed to deliver the expected result."
@@ -506,6 +539,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Pagpalpak ng Software)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<div>
@@ -517,6 +551,7 @@ const Form = () => {
 								label="Others"
 								labelPlacement="end"
 							/>
+							<span className={classes.italic}>(Iba pang Dahilan)</span>
 							<TextField
 								name="others2Text"
 								value={postData.others2Text}
@@ -524,6 +559,7 @@ const Form = () => {
 								disabled={postData.others2Disabled}
 							/>
 						</div>
+						
 
 					</Grid>
 				</Grid>
@@ -531,7 +567,9 @@ const Form = () => {
 
 
 				{/* Why Occured Section */}
-				<br /><h6 className={classes.reportForm}>Why it Occured?</h6>
+				<br /><h6 className={classes.reportForm}>Why it Occured ? <span className={classes.italic}>(Bakit nangyari?)</span></h6>
+
+
 				<Grid container className={classes.reportForm}>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: There is a clear reason for the attack."
@@ -545,6 +583,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Sinadya)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: The intent is to cause damage or harm to people or system."
@@ -558,6 +597,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Aktwal na Pag-atake)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: The damage occured unexpected, unintentional, and purely by chance."
@@ -570,6 +610,7 @@ const Form = () => {
 								label="Accidental"
 								labelPlacement="end"
 							/></LightTooltip>
+						<span className={classes.italic}>(Di Sinasadya)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<div>
@@ -581,6 +622,7 @@ const Form = () => {
 								label="Others"
 								labelPlacement="end"
 							/>
+							<span className={classes.italic}>(Iba pang Dahilan)</span>
 							<TextField
 								name="others3Text"
 								value={postData.others3Text}
@@ -588,11 +630,13 @@ const Form = () => {
 								disabled={postData.others3Disabled}
 							/>
 						</div>
+						
 					</Grid>
 				</Grid>
 
 				<br />
-				<h6 className={classes.reportForm}>Components Affected Sections</h6>
+				<h6 className={classes.reportForm}>Components Affected Sections <span className={classes.italic}>(Seksyon ng mga Apektadong Bahagi)</span></h6>
+
 
 
 				{/* Components Affected */}
@@ -609,6 +653,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Mga Tao o Organisasyon)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Facts provided by something or someone "
@@ -622,6 +667,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Impormasyon)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Materials used to run a specific component (machinery, wirings, equipments, tools, etc.)"
@@ -636,6 +682,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Pisikal na Kagamitan)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Programs and other operating systems equipped to operate a computer"
@@ -662,6 +709,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Serbisyo at mga Mapagkukunan)</span>
 					</Grid>
 					<Grid item xs={6}>
 
@@ -673,7 +721,8 @@ const Form = () => {
 								control={<Checkbox color="primary" />}
 								label="Other"
 								labelPlacement="end"
-							/>
+							/>	
+							<span className={classes.italic}>(Iba pang Dahilan)</span>
 							<TextField
 								name="others4Text"
 								value={postData.others4Text}
@@ -681,11 +730,13 @@ const Form = () => {
 								disabled={postData.others4Disabled}
 							/>
 						</div>
+					
 					</Grid>
 				</Grid>
 
 				{/* Adverse Business Impacts */}
-				<br /><h6 className={classes.reportForm}>Adverse Business Impacts</h6>
+				<br /><h6 className={classes.reportForm}>Adverse Business Impacts <span className={classes.italic}>(Masamang Epekto sa Negosyo)</span></h6>
+
 				{/* Components Affected */}
 				<Grid container className={classes.reportForm}>
 					<Grid item xs={6}>
@@ -700,6 +751,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Kawalang Pinansal)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Recorded individual identity "
@@ -713,6 +765,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Personal na Impormasyon)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Affection of normal operations due to the failures caused by the cyber incident"
@@ -726,6 +779,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Pagkasira sa Operasyon ng Negosyo)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: A loss trust and perception towards the affected"
@@ -739,6 +793,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Pagkawala ng Reputasyon o Dangal)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Required lawful regulations and policies applied to a project, services and/or performance "
@@ -752,6 +807,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
+						<span className={classes.italic}>(Legal at Regulasyong Tungkulin)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<div>
@@ -763,6 +819,7 @@ const Form = () => {
 								label="Others"
 								labelPlacement="end"
 							/>
+							<span className={classes.italic}>(Iba pang Dahilan)</span>
 							<TextField
 								name="others5Text"
 								value={postData.others5Text}
@@ -771,81 +828,110 @@ const Form = () => {
 								multiline
 							/>
 						</div>
+						
 					</Grid>
 				</Grid>
 
-				<br /><h6 className={classes.reportForm}>Vulnerabilities Identified</h6>
+				<br /><h6 className={classes.reportForm}>Vulnerabilities Identified <span className={classes.italic}>(Mga Kahinaang Natukoy)</span></h6>
+
 				{/* Vulnerabilities Identified */}
 				<Grid container className={classes.reportForm}>
 					<Grid item xs={6}>
-						<FormControlLabel
-							name="informationVulnerability"
-							value={postData.informationVulnerability}
-							onChange={(e) => setPostData({ ...postData, informationVulnerability: e.target.checked })}
-							control={<Checkbox color="primary" />}
-							label="Information"
-							labelPlacement="end"
-						/>
+						<LightTooltip title="Definition: Personal, business, and other sensitive information were leaked"
+							placement="right" arrow interactive TransitionComponent={Zoom}>
+							<FormControlLabel
+								name="informationVulnerability"
+								value={postData.informationVulnerability}
+								onChange={(e) => setPostData({ ...postData, informationVulnerability: e.target.checked })}
+								control={<Checkbox color="primary" />}
+								label="Information"
+								labelPlacement="end"
+							/>
+						</LightTooltip>
+						<span className={classes.italic}>(Impormasyon)</span>
 					</Grid>
 					<Grid item xs={6}>
-						<FormControlLabel
-							name="reputationAndImage"
-							value={postData.reputationAndImage}
-							onChange={(e) => setPostData({ ...postData, reputationAndImage: e.target.checked })}
-							control={<Checkbox color="primary" />}
-							label="Reputation and Image"
-							labelPlacement="end"
-						/>
+						<LightTooltip title="Definition: Personal or componay reputation is in danger "
+							placement="right" arrow interactive TransitionComponent={Zoom}>
+							<FormControlLabel
+								name="reputationAndImage"
+								value={postData.reputationAndImage}
+								onChange={(e) => setPostData({ ...postData, reputationAndImage: e.target.checked })}
+								control={<Checkbox color="primary" />}
+								label="Reputation and Image"
+								labelPlacement="end"
+							/>
+						</LightTooltip>
+						<span className={classes.italic}>(Dignidad at Imahe)</span>
 					</Grid>
 					<Grid item xs={6}>
-						<FormControlLabel
-							name="people"
-							value={postData.people}
-							onChange={(e) => setPostData({ ...postData, people: e.target.checked })}
-							control={<Checkbox color="primary" />}
-							label="People"
-							labelPlacement="end"
-						/>
+						<LightTooltip title="Definition: Employee, customer, or business owner's life is in danger "
+							placement="right" arrow interactive TransitionComponent={Zoom}>
+							<FormControlLabel
+								name="people"
+								value={postData.people}
+								onChange={(e) => setPostData({ ...postData, people: e.target.checked })}
+								control={<Checkbox color="primary" />}
+								label="People"
+								labelPlacement="end"
+							/>
+						</LightTooltip>
+						<span className={classes.italic}>(Mga Tao)</span>
 					</Grid>
 					<Grid item xs={6}>
-						<FormControlLabel
-							name="processesProcedures"
-							value={postData.processesProcedures}
-							onChange={(e) => setPostData({ ...postData, processesProcedures: e.target.checked })}
-							control={<Checkbox color="primary" />}
-							label="Processes, procedures, policies, guidelines"
-							labelPlacement="end"
-						/>
+						<LightTooltip title="Definition: Systematic vulnerabilities among the company "
+							placement="right" arrow interactive TransitionComponent={Zoom}>
+							<FormControlLabel
+								name="processesProcedures"
+								value={postData.processesProcedures}
+								onChange={(e) => setPostData({ ...postData, processesProcedures: e.target.checked })}
+								control={<Checkbox color="primary" />}
+								label="Processes, procedures, policies, and guidelines"
+								labelPlacement="end"
+							/>
+						</LightTooltip>
+						<span className={classes.italic}>(Proseso, Pamamaraan, Patakaran, at Gabay)</span>
 					</Grid>
 					<Grid item xs={6}>
-						<FormControlLabel
-							name="physical"
-							value={postData.physical}
-							onChange={(e) => setPostData({ ...postData, physical: e.target.checked })}
-							control={<Checkbox color="primary" />}
-							label="Physical (e.g. Hardware)"
-							labelPlacement="end"
-						/>
+						<LightTooltip title="Definition: Tangible assets are in danger "
+							placement="right" arrow interactive TransitionComponent={Zoom}>
+							<FormControlLabel
+								name="physical"
+								value={postData.physical}
+								onChange={(e) => setPostData({ ...postData, physical: e.target.checked })}
+								control={<Checkbox color="primary" />}
+								label="Physical (e.g. Hardware)"
+								labelPlacement="end"
+							/>
+						</LightTooltip>
+						<span className={classes.italic}>(Pisikal)</span>
 					</Grid>
 					<Grid item xs={6}>
-						<FormControlLabel
-							name="servicesVulnerability"
-							value={postData.servicesVulnerability}
-							onChange={(e) => setPostData({ ...postData, servicesVulnerability: e.target.checked })}
-							control={<Checkbox color="primary" />}
-							label="Services"
-							labelPlacement="end"
-						/>
+						<LightTooltip title="Definition: Business services might be halted "
+							placement="right" arrow interactive TransitionComponent={Zoom}>
+							<FormControlLabel
+								name="servicesVulnerability"
+								value={postData.servicesVulnerability}
+								onChange={(e) => setPostData({ ...postData, servicesVulnerability: e.target.checked })}
+								control={<Checkbox color="primary" />}
+								label="Services"
+								labelPlacement="end"
+							/>
+						</LightTooltip>
+						<span className={classes.italic}>(Serbisyo)</span>
 					</Grid>
 					<Grid item xs={6}>
-						<FormControlLabel
-							name="software"
-							value={postData.software}
-							onChange={(e) => setPostData({ ...postData, software: e.target.checked })}
-							control={<Checkbox color="primary" />}
-							label="Software (e.g. computer program)"
-							labelPlacement="end"
-						/>
+						<LightTooltip title="Definition: Software applications might be vulnerable to hacking "
+							placement="right" arrow interactive TransitionComponent={Zoom}>
+							<FormControlLabel
+								name="software"
+								value={postData.software}
+								onChange={(e) => setPostData({ ...postData, software: e.target.checked })}
+								control={<Checkbox color="primary" />}
+								label="Software (e.g. computer program)"
+								labelPlacement="end"
+							/>
+						</LightTooltip>
 					</Grid>
 					<Grid item xs={6}>
 						<div>
@@ -857,6 +943,7 @@ const Form = () => {
 								label="Others"
 								labelPlacement="end"
 							/>
+							<span className={classes.italic}>(Iba pang Dahilan)</span>
 							<TextField
 								name="others6Text"
 								value={postData.others6Text}
@@ -864,6 +951,7 @@ const Form = () => {
 								disabled={postData.others6Disabled}
 							/>
 						</div>
+						
 					</Grid>
 				</Grid>
 			</Container>
@@ -881,7 +969,8 @@ const Form = () => {
 				<Grid container>
 					<MuiPickersUtilsProvider utils={DateFnsUtils}>
 						<Grid item xs={6}>
-							<br /><h6>Date the Event Occured</h6>
+							<br /><h6>Date the Event Occured <span className={classes.italic}>(Petsa kung Kailan Nangyari)</span></h6>
+
 							<DatePicker
 								margin="normal"
 								name="dateOccured"
@@ -897,7 +986,8 @@ const Form = () => {
 						</Grid>
 
 						<Grid item xs={6}>
-							<br /><h6>Time the Event Occured</h6>
+							<br /><h6>Time the Event Occured <span className={classes.italic}>(Oras kung Kailan Nangyari)</span></h6>
+
 							<TimePicker
 								margin="normal"
 								name="timeOccured"
@@ -914,7 +1004,8 @@ const Form = () => {
 				<Grid container>
 					<MuiPickersUtilsProvider utils={DateFnsUtils}>
 						<Grid item xs={6}>
-							<br /><h6>Date the Event Discovered</h6>
+							<br /><h6>Date the Event Discovered <span className={classes.italic}> (Petsa kung Kailan Nalaman)</span></h6>
+
 							<DatePicker
 								margin="normal"
 								name="dateDiscovered"
@@ -928,7 +1019,8 @@ const Form = () => {
 						</Grid>
 
 						<Grid item xs={6}>
-							<br /><h6>Time the Event Discovered</h6>
+							<br /><h6>Time the Event Discovered <span className={classes.italic}> (Oras kung Kailan Nalaman)</span></h6>
+
 							<TimePicker
 								margin="normal"
 								name="timeDiscovered"
@@ -945,6 +1037,7 @@ const Form = () => {
 					<Grid item xs={6}>
 						<div>
 							<br /><h6>Is the event over?</h6>
+							<div className={classes.italic}>Tapos na ba ang pangyayari?</div>
 
 							<div>
 								<RadioGroup row>
@@ -977,7 +1070,8 @@ const Form = () => {
 				<Grid container>
 					<MuiPickersUtilsProvider utils={DateFnsUtils}>
 						<Grid item xs={6}>
-							<br /><h6>Date the Event Ended</h6>
+							<br /><h6>Date the Event Ended <span className={classes.italic}>(Petsa kung Kailan Natapos)</span></h6>
+
 							<DatePicker
 								margin="normal"
 								name="dateEnded"
@@ -991,7 +1085,7 @@ const Form = () => {
 						</Grid>
 
 						<Grid item xs={6}>
-							<br /><h6>Time the Event Ended</h6>
+							<br /><h6>Time the Event Ended <span className={classes.italic}>(Oras kung Kailan Natapos)</span></h6>
 							<TimePicker
 								margin="normal"
 								name="timeEnded"
@@ -1005,7 +1099,7 @@ const Form = () => {
 					</MuiPickersUtilsProvider>
 				</Grid><br />
 
-				<h6>Brief Summary Report</h6>
+				<h6>Brief Summary Report <span className={classes.italic}>(Maikling Buod ng Ulat)</span></h6>
 
 				{/* Summary Report */}
 				<Grid container>
@@ -1034,11 +1128,13 @@ const Form = () => {
 						onChange={(e) => setPostData({ ...postData, image: e.target.value })}
 					/>
 				</div>*/}
-			
-			{/**Backend working uploading ng files png jpeg pdf word by using base64 to png/pdf/etc*/}
+
+				{/**Backend working uploading ng files png jpeg pdf word by using base64 to png/pdf/etc*/}
 				<div className={classes.fileInput}>
-					<FileBase type="file" multiple={false} 
-					onDone={({base64}) => setPostData({ ...postData, selectedFile: base64})}/></div>	
+					<h6>Please upload documents about the incident<span className={classes.italic}> (Mangyaring mag-upload ng iyong dokumento patungkol sa insidenteng naganap)</span></h6>
+
+					<FileBase type="file" multiple={false}
+						onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
 
 
 				{/* Submit Button */}
@@ -1057,14 +1153,14 @@ const Form = () => {
 						<DialogTitle id="alert-dialog-slide-title">{"Are you sure you want to Submit?"}</DialogTitle>
 						<DialogContent>
 							<DialogContentText id="alert-dialog-slide-description">
-							Make sure that all of the information above are correct.
+								Make sure that all of the information above are correct.
                             </DialogContentText>
 						</DialogContent>
 						<DialogActions>
 							<Button color="primary" onClick={handleClose}>
 								No, I want to check again
                             </Button>
-							<Button onClick={handleSubmit} color="primary" href="./report"> 
+							<Button onClick={handleSubmit} color="primary" href="./report">
 								Yes, I want to submit the report
                             </Button>
 						</DialogActions>
