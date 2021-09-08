@@ -1,0 +1,77 @@
+.Video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.LastLine {
+    background-color: #0D4E64;
+    text-align: center;
+}
+
+.mainDiv{
+    background-image: "/images/infographics.jpg";
+}
+
+.Link {
+    font-size: 20px;
+    text-decoration: none;
+    color: white !important;
+    font-family: "Raleway", sans-serif;
+}
+
+.Highlight {
+    color: white!important;
+}
+
+.titleCard {
+    width: 100%;
+    color: white !important;
+  }
+
+.titleCardBackground {
+    background-color: #0D4E64 !important;
+    border: #0D4E64 !important;
+  }
+
+/* Infographics image */
+.Infographics {
+    height: 100px;
+    width: 100px;
+    text-align: center;
+}
+/* 
+News image */
+.News {
+    align-items: center;
+}
+
+/* updatesNews */
+/* .UpdatesNews {
+    height: 500px;
+    width: 300px;
+   
+} */
+
+.NewsAndUpdatesText {
+    color: #72ECFD;
+}
+
+
+.Carousel {
+    background-color: #0D4E64;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+ 
+.CyberSecurityText {
+    color: #0D4E64;
+}
+
+.topText{
+    margin-left: 1000px;
+}

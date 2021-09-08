@@ -1,0 +1,41 @@
+/* to stretch the width */
+.NavbarComp {
+  background-color: #011E2C !important;
+  padding: 20px;
+}
+
+/* Report Button */
+.ReportButton {
+  background-color: #E56660 !important;
+  border: #E56660 !important;
+}
+
+.MenuItems {
+  text-align: center;
+}
+
+.Logo {
+  display: flex;
+  width: 250px;
+}
+
+.SearchBar {
+  display: flex;  
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.mr-2 {
+  border-radius: 20px;
+}
+
+.nav-item:hover .dropdown-menu{
+  display:block!important;
+}
+
+.ResourcesDropDown {
+  background-color: #011E2C;
+  border: #011E2C;
+  border-radius: 0px;
+  color: #8C9AA0;
+}
