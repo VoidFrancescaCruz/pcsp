@@ -796,7 +796,7 @@ const ReportPage = () => {
                         </Form.Group>
 
                         {/* Submit Button */}
-                        <button type="submit" classname="submitBtn">Submit</button>
+                        <button type="submit" className="submitBtn">Submit</button>
                     </Form>
                 </Row>
             </Container>

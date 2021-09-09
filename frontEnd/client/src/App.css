@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 body {
   font-family: 'Raleway', sans-serif;
@@ -18,34 +18,12 @@ body {
   flex: 1;
 }
 
-/* Submit Button */
-.submitBtn {
-  background-color: #E56660 !important;
-  border: #E56660 !important;
-  color: #ffffff;
-  margin-top: 30px;
-}
-
 .formBody {
   padding-top: 10px;
 }
 
 .mb-3 {
   font-weight:600;
-}
-
-.reportForm {
-  padding-top: 15px;
-}
-
-.breadCrumbs {
-  margin-left: 20px;
-}
-
-.breadCrumbs-item {
-  text-decoration: none;
-  color: pink;
-  font-size: small; 
 }
 
 .App-logo {

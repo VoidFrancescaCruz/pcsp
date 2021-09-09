@@ -20,7 +20,8 @@ export default makeStyles((theme) => ({
 
   fileInput: {
     width: '97%',
-    margin: '10px 0',
+    marginTop: '20px',
+    marginBottom: '30px',
   },
 
   titleCard: {
@@ -54,7 +55,7 @@ export default makeStyles((theme) => ({
   },
 
   submitButton: {
-    marginTop: '20px',
+    marginTop: '30px',
     marginBottom: '20px',
     backgroundColor: '#E56660 !important',
     border: '#E56660 !important',
@@ -66,19 +67,19 @@ export default makeStyles((theme) => ({
     borderRadius: '5px',
   },
 
+
   italic: {
-    fontStyle: 'italic',
-    fontWeight: 'normal',
-    color: '#6D6F72',
-    // paddingRight: '5px',
-    
-    
-  },
+  fontStyle: 'italic',
+  fontWeight: 'normal',
+  color: '#6D6F72',
+  // paddingRight: '5px',
+
+},
 
   translationAlignment: {
-    marginTop: '20px',
-    paddingRight: '50px'
-  }
+  marginTop: '20px',
+  paddingRight: '50px'
+}
 
 
 

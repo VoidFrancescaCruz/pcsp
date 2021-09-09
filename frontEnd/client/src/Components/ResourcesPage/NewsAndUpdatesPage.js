@@ -7,20 +7,9 @@ const NewsAndUpdatesPage = () => {
 
     return (
         <div >
-            <Container classname="Infographics">
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
-                <h1>NEWS AND UPDATES</h1>
+            <Container className="newsandupdates">
+                <img src="/images/NewsUpdatesPage.jpg" className="center-image"/>
+
             </Container>
         </div>
     );

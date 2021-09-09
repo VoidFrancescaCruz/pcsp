@@ -1,0 +1,15 @@
+.center-image{
+    height:100%;
+    width:100%;
+    background:#0D4E64;
+    position:relative;
+}
+  
+.center-image img{
+    max-width:100%;
+    max-height:100%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}

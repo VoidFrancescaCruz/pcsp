@@ -13,6 +13,15 @@ import CyberSecurityTopicsPage from '../ResourcesPage/CyberSecurityTopicsPage';
 import NewsAndUpdatesPage from '../ResourcesPage/NewsAndUpdatesPage';
 import ReadAndUnderstandPage from '../ReadAndUnderstandPage/ReadAndUnderstandPage';
 
+//Cyber Security Topics 
+import CyberAvoidance from '../ResourcesPage/TopicsforCyberSecurity/CyberAvoidance';
+import CyberImportance from '../ResourcesPage/TopicsforCyberSecurity/CyberImportance';
+import CyberInPH from '../ResourcesPage/TopicsforCyberSecurity/CyberInPH';
+import CyberReportIncident from '../ResourcesPage/TopicsforCyberSecurity/CyberReportIncident';
+import CyberSafeguard from '../ResourcesPage/TopicsforCyberSecurity/CyberSafeguard';
+import CyberThreats from '../ResourcesPage/TopicsforCyberSecurity/CyberThreats';
+import CyberTips from '../ResourcesPage/TopicsforCyberSecurity/CyberTips';
+
 import './NavbarComp.css';
 
 const NavbarComp = () => {
@@ -53,14 +62,14 @@ const NavbarComp = () => {
                         </Nav>
 
                         {/* Search Bar */}
-                        <Form className="SearchBar">
+                        {/* <Form className="SearchBar">
                             <FormControl
                                 type="search"
                                 placeholder="Search"
                                 className="mr-2"
                                 aria-label="Search"
                             />
-                        </Form>
+                        </Form> */}
 
                     </Navbar.Collapse>
 
@@ -99,6 +108,27 @@ const NavbarComp = () => {
                     </Route>
                     <Route path="/read">
                         <ReadAndUnderstandPage />
+                    </Route>
+                    <Route path="/cyberavoidance">
+                        <CyberAvoidance />
+                    </Route>
+                    <Route path="/cyberimportance">
+                        <CyberImportance />
+                    </Route>
+                    <Route path="/cyberinph">
+                        <CyberInPH />
+                    </Route>
+                    <Route path="/cyberreportincident">
+                        <CyberReportIncident />
+                    </Route>
+                    <Route path="/cybersafeguard">
+                        <CyberSafeguard />
+                    </Route>
+                    <Route path="/cyberthreats">
+                        <CyberThreats />
+                    </Route>
+                    <Route path="/cybertips">
+                        <CyberTips />
                     </Route>
                 </Switch>
             </div>

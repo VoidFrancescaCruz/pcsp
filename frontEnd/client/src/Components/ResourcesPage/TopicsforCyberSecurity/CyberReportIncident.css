@@ -1,0 +1,30 @@
+.center-image{
+    height:100%;
+    width:100%;
+    background:#0D4E64;
+    position:relative;
+}
+  
+.center-image img{
+    max-width:100%;
+    max-height:100%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.text {
+    text-align: center;
+}
+.Link {
+    font-size: 50px;
+    text-decoration: none;
+    color: #000000 !important;
+    font-family: "Raleway", sans-serif;
+
+}
+
+.Highlight{
+    color: #0D4E64!important;
+}

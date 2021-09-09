@@ -49,7 +49,6 @@ const ReadAndUnderstandPage = () => {
 
                     <div class="card-body" className={classes.titleCardBackground}>
                         <Container>
-
                             <p>
                                 According to <strong>Cybercrime Prevention Act of 2012 </strong>a.k.a. <strong>Republic Act No. 10175</strong>, accessing third party data without authorization may be unlawful under several laws in the Philippines. If the data is accessed and stored by a third party without authorization from the owner of the data, the access and storage may be considered to be an offence. Our services require access of certain user data and by agreeing with this, you have given consent to us to gain access to your data. In addition, you’ve given us the right to withdraw and cancel services and you must abide by our rules for user behavior. <br /><br />
                                 <strong>For Your Information:</strong><br /><br />
@@ -62,41 +61,39 @@ const ReadAndUnderstandPage = () => {
                         </Container>
                     </div>
 
-                    <div>
-                        <RadioGroup className={classes.agreeDisagree}>
-                            <FormControlLabel
-                                name="agree"
-                                control={<Radio color="primary" />}
-                                value="I agree"
-                                onChange={handleSubmitChange}
-                                label="I agree with the statements above"
+                    <div className={classes.optionsWrap}>
+                        <div className={classes.optionsContent}>
+                            <RadioGroup className={classes.agreeDisagree}>
+                                <FormControlLabel
+                                    name="agree"
+                                    control={<Radio color="primary" />}
+                                    value="I agree"
+                                    onChange={handleSubmitChange}
+                                    label="I agree with the statements above"
 
-                            />
-                            <FormControlLabel
-                                name="disagree"
-                                control={<Radio color="primary" />}
-                                value="I disagree"
-                                onChange={handleSubmitChange}
-                                label="I disagree with the statements above"
-                            />
-                        </RadioGroup>
+                                />
+                                <FormControlLabel
+                                    name="disagree"
+                                    control={<Radio color="primary" />}
+                                    value="I disagree"
+                                    onChange={handleSubmitChange}
+                                    label="I disagree with the statements above"
+                                />
+                            </RadioGroup>
+                        </div>
                     </div>
-
-
 
                 </Container>
 
             </div>
 
             <div className={classes.buttonClass}>
-                <Button variant="contained"  disabled={postData.disabled} href="/report" className={classes.buttonBackground}>
+                <Button variant="contained" disabled={postData.disabled} href="/report" className={classes.buttonBackground}>
                     Continue
                 </Button>
             </div>
-
         </div>
     )
-
 }
 
 export default ReadAndUnderstandPage;

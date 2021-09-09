@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, } from 'react';
 
 //Material UI Dependencies
 import { TextField, Container, Checkbox, FormControlLabel, Grid, RadioGroup, Radio, Tooltip, Zoom, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide } from '@material-ui/core';
@@ -46,20 +46,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 
 const Form = () => {
-	const [open, setOpen] = React.useState(false)
+	const [open, setOpen] = useState(false)
 
+	const [isVerified, setVerified] = useState(false)
 
 	//Recaptcha function
-
-	const verify = {
-		isVerified: false
-	}
-
 	const callback = () => {
 		console.log('captcha loaded sucessfully');
-		verify({
-			isVerified: false
-		})
 	}
 
 	const verifyCallback = function (response) {
@@ -67,22 +60,18 @@ const Form = () => {
 		//res = response.toString();
 		if(response != null) {
 			console.log(response)
-			verify({
-				isVerified: true
-			})
+			setVerified({ isVerified: true })
 		}
 	}
 
 	const handleClickOpen = (e) => {
-		if(verify.isVerified == true) {
+		if(isVerified === false) {
 			alert('Please verify that you are a human!');
 			e.preventDefault();
 		} 
 		else {	
-			alert('done!');
 			setOpen(true);
 			e.preventDefault();
-		
 		}
 	};
 
@@ -97,8 +86,8 @@ const Form = () => {
 		e.preventDefault();
 		window.location.reload();
 		dispatch(createPost(postData));
-		//console.log(e)
 	};
+
 	//useState 
 	const [postData, setPostData] = useState({
 		//REPORTING PERSON DETAILS (textBox)
@@ -190,24 +179,20 @@ const Form = () => {
 		others4Disabled: true,
 		others5Disabled: true,
 		others6Disabled: true,
-
-
+		//Date and Time Picker disabled Property
+		dateAndTimeDisabled: true,
 	})
 
 	//Needed for styles.js
 	const classes = useStyles();
 
-
-
 	//Backend Stuff
 	const dispatch = useDispatch();
-
-
 
 	const handleChange = (e) => {
 		setPostData({ ...postData, [e.target.name]: e.target.value });
 
-		//enable or disabled others text field with checkbox
+		//enable or disabled others components
 		if ([e.target.name] == 'others1Check') {
 			setPostData({ ...postData, others1Disabled: !postData.others1Disabled })
 		} else if ([e.target.name] == 'others2Check') {
@@ -218,16 +203,13 @@ const Form = () => {
 			setPostData({ ...postData, others4Disabled: !postData.others4Disabled })
 		} else if ([e.target.name] == 'others5Check') {
 			setPostData({ ...postData, others5Disabled: !postData.others5Disabled })
-		} else {
+		} else if([e.target.name] == 'others6Check'){
 			setPostData({ ...postData, others6Disabled: !postData.others6Disabled })
+		} else {
+			setPostData({...postData, dateAndTimeDisabled: !postData.dateAndTimeDisabled})
 		}
 	}
 
-
-	// function handleFileInput (event){
-	// 	setPostData({...postData, image: event.target.value})
-	// 	console.log(event)
-	// }
 	// DITO ILALAGAY YUNG IDADAGDAG NA FORMS (change value to {postData.name})
 	return (
 
@@ -241,7 +223,7 @@ const Form = () => {
 			</div><br />
 
 			{/* Reporting Person Details Input Fields */}
-			<Container className={classes.italic}>
+			<Container>
 
 				<Grid container spacing={2}>
 
@@ -868,8 +850,7 @@ const Form = () => {
 								disabled={postData.others5Disabled}
 								multiline
 							/>
-						</div>
-						
+						</div>	
 					</Grid>
 				</Grid>
 
@@ -927,12 +908,12 @@ const Form = () => {
 								value={postData.processesProcedures}
 								onChange={(e) => setPostData({ ...postData, processesProcedures: e.target.checked})}
 								control={<Checkbox color="primary" />}
-								label="Processes, procedures, policies, and guidelines"
+								label="Processes and Guidelines"
 								labelPlacement="end"
 								
 							/>
 						</LightTooltip>
-						<span className={classes.italic}>(Proseso, Pamamaraan, Patakaran, at Gabay)</span>
+						<span className={classes.italic}>(Mga Proseso at Gabay)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Tangible assets are in danger "
@@ -960,8 +941,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
-						<span className={classes.italic}>(Serbisyo)</span>
-						
+						<span className={classes.italic}>(Serbisyo)</span>						
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Software applications might be vulnerable to hacking "
@@ -1021,8 +1001,6 @@ const Form = () => {
 								format="MM/dd/yyyy"
 								value={postData.dateOccured}
 								maxDate={new Date()}
-								//onChange={(e) => setPostData({ ...postData, dateOccured: e.target.date})}
-								//onChange={date => setPostData(date)}
 								onChange={date => setPostData({ ...postData, dateOccured: date.toString() })}
 
 							/>
@@ -1037,7 +1015,6 @@ const Form = () => {
 								label="Enter Time"
 								value={postData.timeOccured}
 								maxDate={new Date()}
-								//onChange={(e) => setPostData({ ...postData, timeOccured: e.target.time})}
 								onChange={time => setPostData({ ...postData, timeOccured: time.toString() })}
 							/>
 						</Grid>
@@ -1056,7 +1033,6 @@ const Form = () => {
 								format="MM/dd/yyyy"
 								value={postData.dateDiscovered}
 								maxDate={new Date()}
-								//onChange={(e) => setPostData({ ...postData, dateDiscovered: e.target.date})}
 								onChange={date => setPostData({ ...postData, dateDiscovered: date.toString() })}
 							/>
 						</Grid>
@@ -1070,7 +1046,6 @@ const Form = () => {
 								label="Enter Time"
 								value={postData.timeDiscovered}
 								maxDate={new Date()}
-								//onChange={(e) => setPostData({ ...postData, timeDiscovered: e.target.time})}
 								onChange={time => setPostData({ ...postData, timeDiscovered: time.toString() })}
 							/>
 						</Grid>
@@ -1087,8 +1062,7 @@ const Form = () => {
 										name="radButtonYes"
 										control={<Radio color="primary" />}
 										value="yes"
-										onChange={(e) => setPostData({ ...postData, radButtonYes: e.target.checked })}
-										// checked = {value === "yes"} 
+										onChange={(e) => setPostData({ ...postData, dateAndTimeDisabled: false })}
 										label="Yes"
 									/>
 									<FormControlLabel
@@ -1096,8 +1070,7 @@ const Form = () => {
 										control={<Radio color="primary" />}
 										label="No"
 										value="no"
-										onChange={(e) => setPostData({ ...postData, radButtonNo: e.target.checked })}
-									// checked = {value === "no"} 
+										onChange={(e) => setPostData({ ...postData, dateAndTimeDisabled: true })}
 									/>
 								</RadioGroup>
 
@@ -1121,8 +1094,8 @@ const Form = () => {
 								format="MM/dd/yyyy"
 								value={postData.dateEnded}
 								maxDate={new Date()}
-								//onChange={(e) => setPostData({ ...postData, dateEnded: e.target.date})}
 								onChange={date => setPostData({ ...postData, dateEnded: date.toString() })}
+								disabled={postData.dateAndTimeDisabled}
 							/>
 						</Grid>
 
@@ -1134,8 +1107,8 @@ const Form = () => {
 								label="Enter Time"
 								value={postData.timeEnded}
 								maxDate={new Date()}
-								//onChange={(e) => setPostData({ ...postData, timeEnded: e.target.time})}
 								onChange={time => setPostData({ ...postData, timeEnded: time.toString() })}
+								disabled={postData.dateAndTimeDisabled}
 							/>
 						</Grid>
 					</MuiPickersUtilsProvider>
@@ -1162,18 +1135,9 @@ const Form = () => {
 
 				</Grid>
 
-				{/**  Maintenance po walang value 
-				<div><br />
-					<input
-						type="file"
-						value={postData.image}
-						onChange={(e) => setPostData({ ...postData, image: e.target.value })}
-					/>
-				</div>*/}
-
 				{/**Backend working uploading ng files png jpeg pdf word by using base64 to png/pdf/etc*/}
 				<div className={classes.fileInput}>
-					<h6>Please upload documents about the incident<span className={classes.italic}> (Mangyaring mag-upload ng iyong dokumento patungkol sa insidenteng naganap)</span></h6>
+					<h6>Please upload documents about the incident (Max upload size of 50MB)<span className={classes.italic}> (Mangyaring mag-upload ng iyong dokumento patungkol sa insidenteng naganap)</span></h6>
 
 					<FileBase type="file" multiple={false}
 						onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
@@ -1181,11 +1145,11 @@ const Form = () => {
 				
 				{/*Recaptcha */}
 				<Recaptcha
-    				sitekey="6LfGXlYcAAAAAJsC6y6p1bHZscXoynk5-tu2R81Y"
+					sitekey="6LfGXlYcAAAAAJsC6y6p1bHZscXoynk5-tu2R81Y"
     				render="explicit"
     				onloadCallback={callback}
-				verifyCallback={verifyCallback}
-  				/>,
+					verifyCallback={verifyCallback}
+  				/>
 
 				{/* Submit Button */}
 				<div>

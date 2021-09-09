@@ -10,7 +10,7 @@ const CyberTips = () => {
             <div>
 
             <h5 align="left"> Source: </h5>
-            <a href= "https://onlinedegrees.und.edu/blog/types-of-cyber-security-threats/" classname= "source"> https://onlinedegrees.und.edu/blog/types-of-cyber-security-threats/ </a>
+            <a href= "https://cipher.com/blog/10-personal-cyber-security-tips-cyberaware/" className= "source"> https://cipher.com/blog/10-personal-cyber-security-tips-cyberaware/ </a>
             
             </div>
         </div>

@@ -64,9 +64,15 @@ export default makeStyles((theme) => ({
     width: '100%',
     color: 'white',
     marginBottom: '20px',
-    display: 'inline',
-    marginLeft: 'auto',
-    marginRight: 'auto',
+  },
+  
+  optionsWrap: {
+    textAlign: 'center',
+  },
+
+  optionsContent: {
+    display: 'inline-flex',
+    textAlign: 'left',
   },
 
   titleCardBackground: {
