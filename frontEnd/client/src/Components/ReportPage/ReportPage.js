@@ -20,6 +20,9 @@ import axios from 'axios';
 // import FileBase from 'react-file-base64';
 import FileBase from 'react-file-base64';
 
+//ReCaptcha
+import Recaptcha from 'react-recaptcha';
+
 //Tooltip Customization
 const LightTooltip = withStyles((theme) => ({
 	tooltip: {
@@ -40,12 +43,47 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 	return <Slide direction="up" ref={ref} {...props} />;
 });
 
+
+
 const Form = () => {
-	const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = React.useState(false)
+
+
+	//Recaptcha function
+
+	const verify = {
+		isVerified: false
+	}
+
+	const callback = () => {
+		console.log('captcha loaded sucessfully');
+		verify({
+			isVerified: false
+		})
+	}
+
+	const verifyCallback = function (response) {
+		
+		//res = response.toString();
+		if(response != null) {
+			console.log(response)
+			verify({
+				isVerified: true
+			})
+		}
+	}
 
 	const handleClickOpen = (e) => {
-		setOpen(true);
-		e.preventDefault();
+		if(verify.isVerified == true) {
+			alert('Please verify that you are a human!');
+			e.preventDefault();
+		} 
+		else {	
+			alert('done!');
+			setOpen(true);
+			e.preventDefault();
+		
+		}
 	};
 
 	const handleClose = (e) => {
@@ -54,11 +92,12 @@ const Form = () => {
 	};
 	//ITO NA YUNG BAGONG HANDLE SUBMIT 
 	const handleSubmit = (e) => {
+
 		setOpen(false);
 		e.preventDefault();
 		window.location.reload();
 		dispatch(createPost(postData));
-		// console.log(e)
+		//console.log(e)
 	};
 	//useState 
 	const [postData, setPostData] = useState({
@@ -162,6 +201,8 @@ const Form = () => {
 
 	//Backend Stuff
 	const dispatch = useDispatch();
+
+
 
 	const handleChange = (e) => {
 		setPostData({ ...postData, [e.target.name]: e.target.value });
@@ -419,7 +460,7 @@ const Form = () => {
 								labelPlacement="end"
 							/>
 						</LightTooltip>
-						<span className={classes.italic}>(Di Inaasahang Pagbabaggo sa Sistema)</span>
+						<span className={classes.italic}>(Di Inaasahang Pagbabago sa Sistema)</span>
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Threatening the security or functionality of the application, host, or network caused by intrusion or cyber attack."
@@ -884,10 +925,11 @@ const Form = () => {
 							<FormControlLabel
 								name="processesProcedures"
 								value={postData.processesProcedures}
-								onChange={(e) => setPostData({ ...postData, processesProcedures: e.target.checked })}
+								onChange={(e) => setPostData({ ...postData, processesProcedures: e.target.checked})}
 								control={<Checkbox color="primary" />}
 								label="Processes, procedures, policies, and guidelines"
 								labelPlacement="end"
+								
 							/>
 						</LightTooltip>
 						<span className={classes.italic}>(Proseso, Pamamaraan, Patakaran, at Gabay)</span>
@@ -909,7 +951,7 @@ const Form = () => {
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Business services might be halted "
 							placement="right" arrow interactive TransitionComponent={Zoom}>
-							<FormControlLabel
+							<FormControlLabel 
 								name="servicesVulnerability"
 								value={postData.servicesVulnerability}
 								onChange={(e) => setPostData({ ...postData, servicesVulnerability: e.target.checked })}
@@ -919,6 +961,7 @@ const Form = () => {
 							/>
 						</LightTooltip>
 						<span className={classes.italic}>(Serbisyo)</span>
+						
 					</Grid>
 					<Grid item xs={6}>
 						<LightTooltip title="Definition: Software applications might be vulnerable to hacking "
@@ -1004,7 +1047,7 @@ const Form = () => {
 				<Grid container>
 					<MuiPickersUtilsProvider utils={DateFnsUtils}>
 						<Grid item xs={6}>
-							<br /><h6>Date the Event Discovered <span className={classes.italic}> (Petsa kung Kailan Nalaman)</span></h6>
+							<br /><h6>Date the Event Discovered <span className={classes.italic}>(Petsa kung Kailan Nalaman)</span></h6>
 
 							<DatePicker
 								margin="normal"
@@ -1036,8 +1079,7 @@ const Form = () => {
 				<Grid container>
 					<Grid item xs={6}>
 						<div>
-							<br /><h6>Is the event over?</h6>
-							<div className={classes.italic}>Tapos na ba ang pangyayari?</div>
+							<br /><h6>Is the event over? <span className={classes.italic}>Tapos na ba ang pangyayari?</span></h6>
 
 							<div>
 								<RadioGroup row>
@@ -1136,10 +1178,19 @@ const Form = () => {
 					<FileBase type="file" multiple={false}
 						onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
 
+				
+				{/*Recaptcha */}
+				<Recaptcha
+    				sitekey="6LfGXlYcAAAAAJsC6y6p1bHZscXoynk5-tu2R81Y"
+    				render="explicit"
+    				onloadCallback={callback}
+				verifyCallback={verifyCallback}
+  				/>,
 
 				{/* Submit Button */}
 				<div>
 					<button className={classes.submitButton}> Submit</button>
+
 
 					{/* Submission Confirmation Dialog */}
 					<Dialog
@@ -1165,7 +1216,7 @@ const Form = () => {
                             </Button>
 						</DialogActions>
 					</Dialog>
-				</div>
+					</div>
 			</Container>
 		</form>
 	);
