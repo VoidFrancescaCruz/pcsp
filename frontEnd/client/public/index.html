@@ -50,5 +50,19 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    
+    <!--Recaptcha-->
+      <!--<div class="g-recaptcha" data-sitekey="YOUR_KEY" data-callback="correctCaptcha"></div>--> 
+ <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script> 
+ <script>
+  var isCaptchaValid = false;
+  function doCaptchaValidate(source, args) {
+      args.IsValid = isCaptchaValid;
+  }
+  var verifyCallback = function (response) {
+      isCaptchaValid = true;
+  };
+  </script>
+
   </body>
 </html>
