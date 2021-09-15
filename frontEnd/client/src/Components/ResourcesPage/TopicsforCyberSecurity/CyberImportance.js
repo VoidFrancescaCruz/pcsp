@@ -1,12 +1,12 @@
 import React from 'react';
 
 //CSS file
-import './CyberImportance.css';
+import './styles.css';
 
 const CyberImportance = () => {
     return (
         <div>
-            <img src="/images/cyberSecuritytopics/cyberImportance.jpg" className="center-image"/>
+            <img src="/images/cyberSecuritytopics/cyberImportance.png" className="center-image"/>
 
             <div>
 

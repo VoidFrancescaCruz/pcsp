@@ -253,7 +253,6 @@ const Form = () => {
 							placeholder="Organisasyon"
 							value={postData.organization}
 							fullWidth
-							required
 							onChange={(e) => setPostData({ ...postData, organization: e.target.value })}
 						/>
 
@@ -270,7 +269,6 @@ const Form = () => {
 							placeholder="Tirahan"
 							value={postData.address}
 							fullWidth
-							required
 							onChange={(e) => setPostData({ ...postData, address: e.target.value })}
 						/>
 

@@ -1,4 +1,32 @@
-.Video {
+/* Hero Section */
+.HeroSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-top: 100px;
+    padding-bottom: 200px;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+.HeroSectionBodyText {
+    font-weight: 500;
+}
+
+/* Cyber Security Topics Section */
+/* .CyberSecurityTopicsSectionContainer {
+    
+} */
+
+.CyberSecurityCard {
+    height: 450px;
+}
+
+/* NPC Section */
+.NPCSection {
     display: flex;
     align-items: center;
     justify-content: center;

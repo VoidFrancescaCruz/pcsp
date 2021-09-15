@@ -8,7 +8,6 @@ const CyberSecurityTopicsPage = () => {
     return (
         <div>
             <Container>
-                <h3 align="center">Cyber Security Topics</h3>
                 <Grid container spacing={5}>
                     <Grid item xs={12}>
                         <a href="/cyberinph">

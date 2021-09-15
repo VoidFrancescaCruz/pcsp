@@ -1,0 +1,48 @@
+.center-image{
+    background-color: #E4635D!important;
+    padding-top: 15px;
+}
+
+.titleCardBackground {
+    background-color: #E4635D!important;
+    border: #E4635D !important;
+    text-align: center;
+  }
+
+  .body {
+    text-align: justify;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+
+  }
+
+  .secondHeading {
+    color: #E4635D !important;
+    margin-bottom: 20px;
+  }
+
+  .source {
+    color: black !important;
+    font-style: italic;
+  }
+
+  .firstHeading {
+      font-weight: 700;
+  }
+
+  .paragraph {
+    font-size: 20px;
+  }
+
+
+
+.titleCard {
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    color: white !important;
+    background-color: #E4635D!important;
+    text-align: center;
+  }
