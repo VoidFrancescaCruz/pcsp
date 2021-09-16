@@ -1135,7 +1135,7 @@ const Form = () => {
 
 				{/**Backend working uploading ng files png jpeg pdf word by using base64 to png/pdf/etc*/}
 				<div className={classes.fileInput}>
-					<h6>Please upload documents about the incident (Max upload size of 50MB)<span className={classes.italic}> (Mangyaring mag-upload ng iyong dokumento patungkol sa insidenteng naganap)</span></h6>
+					<h6>Please upload documents about the incident (Max upload size of 500KB)<span className={classes.italic}> (Mangyaring mag-upload ng iyong dokumento patungkol sa insidenteng naganap)</span></h6>
 
 					<FileBase type="file" multiple={false}
 						onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
